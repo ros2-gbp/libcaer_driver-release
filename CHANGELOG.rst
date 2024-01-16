@@ -2,7 +2,7 @@
 Changelog for package libcaer_driver
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-1.0.0 (2024-01-16)
+1.1.1 (2024-01-16)
 ------------------
-* initial release of package
-* Contributors: Bernd Pfrommer
+* initial release as ROS2 package
+* Contributors: Bernd Pfrommer, Thies Lennart Alff
