@@ -1,0 +1,8 @@
+ros-humble-libcaer-driver (1.1.1-1jammy) jammy; urgency=high
+
+  * initial release as ROS2 package
+  * Contributors: Bernd Pfrommer, Thies Lennart Alff
+
+ -- Bernd Pfrommer <bernd.pfrommer@gmail.com>  Tue, 16 Jan 2024 05:00:00 -0000
+
+
