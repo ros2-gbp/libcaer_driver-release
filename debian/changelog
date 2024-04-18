@@ -1,0 +1,8 @@
+ros-jazzy-libcaer-driver (1.0.0-3bookworm) bookworm; urgency=high
+
+  * initial release of package
+  * Contributors: Bernd Pfrommer
+
+ -- Bernd Pfrommer <bernd.pfrommer@gmail.com>  Tue, 16 Jan 2024 00:00:00 -0000
+
+
