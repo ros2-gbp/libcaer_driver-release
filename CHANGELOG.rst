@@ -2,7 +2,7 @@
 Changelog for package libcaer_driver
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-1.1.3 (2024-05-30)
+1.2.3 (2024-05-30)
 ------------------
 * remove repos file, build only on recent distros
 * use libcaer_vendor
@@ -11,7 +11,7 @@ Changelog for package libcaer_driver
 * fix SEGV bug: check for nullptr in rosparam declaration
 * Contributors: Bernd Pfrommer
 
-1.1.1 (2024-01-16)
+1.2.1 (2024-01-16)
 ------------------
-* initial release as ROS2 package
+* initial release of ROS2 package
 * Contributors: Bernd Pfrommer, Thies Lennart Alff
