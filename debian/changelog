@@ -1,0 +1,19 @@
+ros-rolling-libcaer-driver (1.0.2-1noble) noble; urgency=high
+
+  * use libcaer_vendor
+  * support sync with additional options for launch files
+  * introduced time_reset_delay to make sync work
+  * fix SEGV bug: check for nullptr in rosparam declaration
+  * catch runtime exception for DvXplorer Mini
+  * Contributors: Bernd Pfrommer, Thies Lennart Alff
+
+ -- Bernd Pfrommer <bernd.pfrommer@gmail.com>  Thu, 30 May 2024 04:00:00 -0000
+
+ros-rolling-libcaer-driver (1.0.0-1noble) noble; urgency=high
+
+  * initial release of package
+  * Contributors: Bernd Pfrommer
+
+ -- Bernd Pfrommer <bernd.pfrommer@gmail.com>  Tue, 16 Jan 2024 05:00:00 -0000
+
+
