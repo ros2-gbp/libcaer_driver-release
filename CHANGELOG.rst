@@ -2,7 +2,7 @@
 Changelog for package libcaer_driver
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-1.0.0 (2024-01-16)
+1.3.3 (2024-05-30)
 ------------------
-* initial release of package
-* Contributors: Bernd Pfrommer
+* initial release on jazzy
+* Contributors: Bernd Pfrommer, Thies Lennart Alff
