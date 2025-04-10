@@ -1,3 +1,26 @@
+## libcaer_driver (humble) - 1.5.0-1
+
+The packages in the `libcaer_driver` repository were released into the `humble` distro by running `/usr/bin/bloom-release --edit-track --track humble --rosdistro humble libcaer_driver` on `Thu, 10 Apr 2025 11:36:55 -0000`
+
+The `libcaer_driver` package was released.
+
+Version of package(s) in repository `libcaer_driver`:
+
+- upstream repository: https://github.com/ros-event-camera/libcaer_driver.git
+- release repository: https://github.com/ros2-gbp/libcaer_driver-release.git
+- rosdistro version: `1.1.3-1`
+- old version: `1.1.3-1`
+- new version: `1.5.0-1`
+
+Versions of tools used:
+
+- bloom version: `0.12.0`
+- catkin_pkg version: `1.0.0`
+- rosdep version: `0.25.1`
+- rosdistro version: `1.0.1`
+- vcstools version: `0.1.42`
+
+
 ## libcaer_driver (iron) - 1.2.3-1
 
 The packages in the `libcaer_driver` repository were released into the `iron` distro by running `/usr/bin/bloom-release --rosdistro iron libcaer_driver` on `Thu, 30 May 2024 13:29:04 -0000`
