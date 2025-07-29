@@ -2,6 +2,11 @@
 Changelog for package libcaer_driver
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+1.5.2 (2025-07-29)
+------------------
+* support new transport api
+* Contributors: Bernd Pfrommer
+
 1.5.1 (2025-05-22)
 ------------------
 * stop using ament_target_dependencies
