@@ -2,6 +2,11 @@
 Changelog for package libcaer_driver
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+1.5.3 (2025-09-01)
+------------------
+* support new image transport node interface
+* Contributors: Bernd Pfrommer
+
 1.5.2 (2025-07-29)
 ------------------
 * support new transport api
