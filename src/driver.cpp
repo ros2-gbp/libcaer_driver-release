@@ -134,7 +134,13 @@ Driver::Driver(const rclcpp::NodeOptions & options)
   const rmw_qos_profile_t qos = rmw_qos_profile_default;
 #endif
 
-  cameraPub_ = image_transport::create_camera_publisher(this, "~/image_raw", qos);
+  cameraPub_ = image_transport::create_camera_publisher(
+#ifdef IMAGE_TRANSPORT_USE_NODEINTERFACE
+    *this,
+#else
+    this,
+#endif
+    "~/image_raw", qos);
 
   timeResetTimer_ = rclcpp::create_timer(
     this, get_clock(), rclcpp::Duration(get_or<int>("time_reset_delay", 2), 0),
@@ -529,12 +535,11 @@ static int32_t compute_new_exposure_time(
   return (newTime);
 }
 
-void Driver::framePacketCallback(uint64_t t, const libcaer::events::FrameEventPacket & packet)
+void Driver::framePacketCallback(const libcaer::events::FrameEventPacket & packet)
 {
   if (cameraPub_.getNumSubscribers() > 0) {
     std::vector<std::unique_ptr<sensor_msgs::msg::Image>> msgs;
-    (void)message_converter::convert_frame_packet(
-      &msgs, packet, cameraFrameId_, rclcpp::Time(t, RCL_SYSTEM_TIME));
+    (void)message_converter::convert_frame_packet(&msgs, packet, cameraFrameId_, rosBaseTime_);
     for (auto & img : msgs) {
       sensor_msgs::msg::CameraInfo::UniquePtr cinfo(
         new sensor_msgs::msg::CameraInfo(cameraInfoMsg_));
@@ -561,12 +566,11 @@ void Driver::framePacketCallback(uint64_t t, const libcaer::events::FrameEventPa
   }
 }
 
-void Driver::imu6PacketCallback(uint64_t t, const libcaer::events::IMU6EventPacket & packet)
+void Driver::imu6PacketCallback(const libcaer::events::IMU6EventPacket & packet)
 {
   if (imuPub_->get_subscription_count() > 0) {
     std::vector<std::unique_ptr<sensor_msgs::msg::Imu>> msgs;
-    (void)message_converter::convert_imu6_packet(
-      &msgs, packet, imuFrameId_, rclcpp::Time(t, RCL_SYSTEM_TIME));
+    (void)message_converter::convert_imu6_packet(&msgs, packet, imuFrameId_, rosBaseTime_);
     for (auto & msg : msgs) {
       imuPub_->publish(std::move(msg));
     }
