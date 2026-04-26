@@ -1,3 +1,26 @@
+## libcaer_driver (kilted) - 1.5.4-1
+
+The packages in the `libcaer_driver` repository were released into the `kilted` distro by running `/usr/bin/bloom-release --ros-distro kilted libcaer_driver` on `Sun, 26 Apr 2026 18:45:03 -0000`
+
+The `libcaer_driver` package was released.
+
+Version of package(s) in repository `libcaer_driver`:
+
+- upstream repository: https://github.com/ros-event-camera/libcaer_driver.git
+- release repository: https://github.com/ros2-gbp/libcaer_driver-release.git
+- rosdistro version: `1.5.2-1`
+- old version: `1.5.2-1`
+- new version: `1.5.4-1`
+
+Versions of tools used:
+
+- bloom version: `0.14.2`
+- catkin_pkg version: `1.1.0`
+- rosdep version: `0.26.0`
+- rosdistro version: `1.0.1`
+- vcstools version: `0.1.42`
+
+
 ## libcaer_driver (jazzy) - 1.5.4-1
 
 The packages in the `libcaer_driver` repository were released into the `jazzy` distro by running `/usr/bin/bloom-release --ros-distro jazzy libcaer_driver` on `Sun, 26 Apr 2026 18:43:22 -0000`
