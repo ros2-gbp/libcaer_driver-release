@@ -3,10 +3,6 @@
 A ROS2 driver for event based cameras using Inilab's Libcaer (Davis, DvXplorer).
 This driver is not written or supported by Inilabs.
 
-DO NOT UPDATE YOUR DEVICE FIRMWARE TO v1.0 IF YOU WANT TO USE THIS
-DRIVER! The camera will no longer work with libcaer after this irreversible
-update, see [this announcement](https://groups.google.com/g/dv-users/c/frmObComeOQ/m/0QtBCmY6AAAJ).
-
 ![banner image](images/davis_240C.png)
 
 This driver is intended to be a successor to the University of Zuerich
@@ -16,7 +12,7 @@ the performance problems due to the message format.
 Usage of the [event_camera_msgs](https://github.com/ros-event-camera/event_camera_msgs/)
 format allows for higher bandwidth and more efficient storage.
 
-The events can be decoded and displayed using the following ROS2 packages:
+The events can be decoded and displayed using the following ROS/ROS2 packages:
 
 - [event_camera_codecs](https://github.com/ros-event-camera/event_camera_codecs)
   has C++ routines to decode event_camera_msgs.
@@ -30,17 +26,20 @@ The events can be decoded and displayed using the following ROS2 packages:
 
 ## Supported platforms
 
+Tested on the following platforms:
+
+- ROS2 Humble on Ubuntu 22.04 LTS
+- ROS2 Jazzy on Ubuntu 24.04 LTS
+
 Tested with the following hardware:
 
 - [Davis 346](https://inivation.com/wp-content/uploads/2019/08/DAVIS346.pdf)
 - [Davis 240C](https://inivation.com/wp-content/uploads/2019/08/DAVIS240.pdf)
 - [DvXplorer](https://shop.inivation.com/collections/dvxplorer)
-- [DvXplorer Micro](https://shop.inivation.com/collections/dvxplorer-micro)
 
 Continuous integration testing covers ROS2 versions Humble and later.
 
-Note: lead developer no longer has access to hardware for testing or
-developing. Pull requests with fixes are greatly appreciated!
+Note: lead developer no longer has access to hardware for testing or developing.
 
 ## Installation
 
@@ -50,8 +49,6 @@ developing. Pull requests with fixes are greatly appreciated!
 sudo apt install ros-${ROS_DISTRO}-libcaer-driver
 ```
 
-See the next section for additional updates to the udev files etc.
-
 ### From source
 
 The build instructions follow the standard procedure for ROS2. Set the following shell variables:
@@ -60,15 +57,11 @@ The build instructions follow the standard procedure for ROS2. Set the following
 repo=libcaer_driver
 url=https://github.com/ros-event-camera/${repo}.git
 ```
-
-and follow the build instructions [here](https://github.com/ros-misc-utilities/.github/blob/master/docs/build_ros_repository.md)
+and follow the ROS2 build instructions [here](https://github.com/ros-misc-utilities/.github/blob/master/docs/build_ros_repository.md)
 
 Make sure to source your workspace's ``install/setup.bash`` afterwards.
 
-This driver provides its own version of ``libcaer`` (via the
-``libcaer_vendor`` package), but you still need to copy the udev file
-into place and modify the group permissions:
-
+This driver provides its own version of ``libcaer`` (via the ``libcaer_vendor`` package), but you still need to copy the udev file into place and modify the group permissions:
 ```
 sudo cp src/libcaer/lib/udev/rules.d/65-inivation.rules /etc/udev/rules.d/
 sudo usermod -aG video ${USER}
@@ -76,7 +69,6 @@ sudo usermod -aG plugdev ${USER}
 sudo udevadm trigger
 sudo service udev restart
 ```
-
 Now you need to log out and back in to the host in order for the updated group permissions to take hold.
 
 
@@ -120,17 +112,13 @@ nodes. For this you will need to install the
 [composable recorder](https://github.com/berndpfrommer/rosbag2_composable_recorder)
 into your workspace as well (see below). There are some example launch files provided
 for launching the combined driver/recorder:
-
 ```
 ros2 launch libcaer_driver recording_dvxplorer_composition.launch.py # (run as composable node)
 ```
-
 Once the combined driver/record is running, start the recording like so:
-
 ```
 ros2 service call /start_recording std_srvs/srv/Trigger
 ```
-
 To stop the recording you have to kill (Ctrl-C) the recording driver.
 
 ### Recording on ROS2 Jazzy and newer
@@ -138,21 +126,19 @@ To stop the recording you have to kill (Ctrl-C) the recording driver.
 With Jazzy the rosbag framework got upgraded to provide composable recording. First launch
 the driver as a composable node, then load the recorder into the same container with
 the ``start_recording.launch.py`` script and unload it with ``stop_recording.py``:
-
 ```
 ros2 launch libcaer_driver driver_composition.launch.py
 ros2 launch libcaer_driver start_recording.launch.py
 ros2 run libcaer_driver stop_recording.py
 ```
 
+
 ### Visualizing the events
 To visualize the events, run a ``renderer`` node from the
 [event_camera_renderer](https://github.com/ros-event-camera/event_camera_renderer) package:
-
 ```
 ros2 launch event_camera_renderer renderer.launch.py
 ```
-
 The renderer node publishes an image that can be visualized with e.g. ``rqt_image_view``
 
 ## Clock synchronized camera operation
