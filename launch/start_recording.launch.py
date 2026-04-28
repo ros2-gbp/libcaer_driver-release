@@ -40,10 +40,7 @@ def launch_setup(context, *args, **kwargs):
                 name='recorder',
                 parameters=[
                     {
-                        'record.topics': [
-                            '/event_camera/events',
-                            '/event_camera/imu',
-                        ],
+                        'record.topics': ['/event_camera/events'],
                         # 'record.topics': ['/event_camera/events',
                         #                   '/event_camera/image_raw'],
                         'record.start_paused': False,

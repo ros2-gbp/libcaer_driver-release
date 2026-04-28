@@ -58,22 +58,21 @@ size_t convert_polarity_packet(
 // ---------- compressed libcaer_cmp encoding
 //
 
-template <class E, class T>
-static void add_to_events(E * events, const T & token)
+template <class T>
+static void add_to_events(std::vector<uint8_t> * events, const T & token)
 {
   const uint8_t * p = reinterpret_cast<const uint8_t *>(&token);
   events->push_back(p[0]);  // token must be 16 bytes or else!
   events->push_back(p[1]);
 }
 
-template <class E>
 static inline void flush_state(
-  E * events, std::bitset<8> * currentMask, uint16_t currentY, uint16_t currentYHigh,
-  uint8_t currentPolarity)
+  std::vector<uint8_t> * events, std::bitset<8> * currentMask, uint16_t currentY,
+  uint16_t currentYHigh, uint8_t currentPolarity)
 {
   if (currentMask->any()) {
     if (currentMask->count() == 1) {
-      add_to_events(events, AddrY(currentY, currentPolarity));
+      add_to_events<AddrY>(events, AddrY(currentY, currentPolarity));
     } else {
       add_to_events(events, VectBaseY(currentYHigh, currentPolarity));
       add_to_events(events, Vect8(static_cast<uint16_t>(currentMask->to_ulong())));
