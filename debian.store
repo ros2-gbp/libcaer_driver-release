@@ -1,1 +1,1 @@
-{"base": "627c38509a31", "parent": "debian/rolling/libcaer_driver", "previous": "e2fce6575a50", "trim": "", "trimbase": ""}
+{"base": "90e79cd", "parent": "debian/lyrical/libcaer_driver", "previous": "10d70de", "trim": "", "trimbase": ""}
