@@ -130,7 +130,7 @@ tracks:
     last_version: 1.5.3
     name: libcaer_driver
     patches: null
-    release_inc: '2'
+    release_inc: '3'
     release_repo_url: null
     release_tag: :{version}
     ros_distro: lyrical
