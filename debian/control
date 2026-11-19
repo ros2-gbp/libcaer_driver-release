@@ -1,0 +1,12 @@
+Source: ros-lyrical-libcaer-driver
+Section: misc
+Priority: optional
+Maintainer: "Bernd Pfrommer" <bernd.pfrommer@gmail.com>
+Build-Depends: debhelper (>= 9.0.0), ros-lyrical-ament-cmake, ros-lyrical-ament-cmake-auto, ros-lyrical-ament-cmake-clang-format <!nocheck>, ros-lyrical-ament-cmake-copyright <!nocheck>, ros-lyrical-ament-cmake-cppcheck <!nocheck>, ros-lyrical-ament-cmake-cpplint <!nocheck>, ros-lyrical-ament-cmake-flake8 <!nocheck>, ros-lyrical-ament-cmake-lint-cmake <!nocheck>, ros-lyrical-ament-cmake-ros, ros-lyrical-ament-cmake-xmllint <!nocheck>, ros-lyrical-camera-info-manager, ros-lyrical-event-camera-msgs, ros-lyrical-image-transport, ros-lyrical-libcaer-vendor, ros-lyrical-rclcpp, ros-lyrical-rclcpp-components, ros-lyrical-ros-environment, ros-lyrical-sensor-msgs, ros-lyrical-std-srvs, ros-lyrical-ros-workspace
+Homepage: https://index.ros.org/p/libcaer_driver/#lyrical
+Standards-Version: 3.9.2
+
+Package: ros-lyrical-libcaer-driver
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}, ros-lyrical-camera-info-manager, ros-lyrical-event-camera-msgs, ros-lyrical-image-transport, ros-lyrical-libcaer-vendor, ros-lyrical-rclcpp, ros-lyrical-rclcpp-components, ros-lyrical-sensor-msgs, ros-lyrical-std-srvs, ros-lyrical-ros-workspace
+Description: ROS2 driver for event base sensors using libcaer
